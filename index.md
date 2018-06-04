@@ -1,37 +1,25 @@
-## Jain Social Group-Bharuch
-
-You can use the [editor on GitHub](https://github.com/sgsforjsg/sgsforjsg.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sgsforjsg/sgsforjsg.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<html  lang="en">
+   <head>
+      <title>Div Tag Example</title>
+   </head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style type="text/css">
+      p {
+      text-align: justify;
+      }
+   </style>
+   <body>
+      <div id = "menu" align = "middle" >
+         <a href = "sms:9974021397">Close</a> 
+         <!--a href = "/about/contact_us.htm">CONTACT</a> | 
+            <a href = "/about/index.htm">ABOUT</a-->
+      </div>     
+         <h5>Content Articles</h5>
+         <p>The college magazine is a Mirror which showcases the activities and achievements of the institute. From the year of institute’s inception, every year we have documented all activities of the institute in form of the college Magazine named GCET VOICE. Really it is a happy moment to see that we are maintaining same tradition and publishing the college magazine for this year too. The magazine presents the glimpses of the growth of the institution on many fronts. The highly qualified and dedicated members of staff have always raised shoulders and have carried out their duties with a high level of commitment.</p>
+         <p>GCET has excellent infrastructure facilities and is well-known for its high quality of educational standards and devoted staff members. We cannotforget the contribution made by ourwell-disciplined and responsible graduated and ongoing young students. The concrete efforts put up by the staff and students reward in terms of continuously improved national ranking of the institute year after year. Placement is another front in which the institute has made upward strides only. However, R & D and consultancy are the areas in which we still need to brace ourselves up. In the globally competitive world, we have to make ourselves better than the best. Keeping this point in mind all the stakeholders of GCET have to work smartly for the bright future of our institute.</p>
+         <p>I take this opportunity to congratulate all the members of the editorial board of GCET VOICE and convey my best wishes to staff and students for their future endeavors.</p>
+         <p><strong>Dr. Himanshu Soni</strong></p>
+         <p><strong>Principal</strong></p>
+        
+   </body>
+</html>
