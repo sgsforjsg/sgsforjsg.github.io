@@ -10,7 +10,7 @@ x= '<tr class="header"> <th style="width:150%;"><input type="text" id="myInput" 
 {"no":"tel:919998014360","name":"Shri Jagdish Mehta ","details":["vice president","Hon. joint secretary "],"link":"https://sgsforjsg.github.io/fem/p4.html","img":"p4.jpg"},
 {"no":"tel:919227612502","name":"Smt Kataki Mehta","details":["Treasurer","chairperson women empower JSGIF "],"link":"https://sgsforjsg.github.io/fem/p5.html","img":"p5.jpg"},
 {"no":"tel:919898046441","name":"Shri Dhirendra Shah","details":["NFP","( former chairman Gujarat region )"],"link":"https://sgsforjsg.github.io/fem/p6.html","img":"p6.jpg"},
-{"no":"tel:919824469669","name":"Shree Jitendra  Vora","details":["NFP","(Hon. joint secretary JSG Bharuch Welfare Trust)"],"link":"https://sgsforjsg.github.io/fem/p7.html","img":"p7.jpg"},
+{"no":"tel:919824469669","name":"Shri Jitendra  Vora","details":["NFP","(Hon. joint secretary JSG Bharuch Welfare Trust)"],"link":"https://sgsforjsg.github.io/fem/p7.html","img":"p7.jpg"},
 {"no":"tel:919925024639","name":"Shri Bharat Shah","details":["NFP","( Hon. Jt.l secretary Gujarat region "],"link":"https://sgsforjsg.github.io/fem/p8.html","img":"p8.jpg"},
 {"no":"tel:919898766888","name":"Shri Kamlesh Udani","details":["Founder president "],"link":"https://sgsforjsg.github.io/fem/p9.html","img":"p9.jpg"},
 {"no":"tel:919824152192","name":"Shri  Shantibhai  Shroff","details":["Member-Advisory board ","former treasurer JSGIF"],"link":"https://sgsforjsg.github.io/fem/p10.html","img":"p10.jpg"},
