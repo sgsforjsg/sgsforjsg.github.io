@@ -38,4 +38,3 @@ for (i in myObj.committee) {
 	x +="</td><td><a href="+ myObj.committee[i].link+"><img src="+ myObj.committee[i].img+"></a></td></tr>"
 }
 document.getElementById("mytable").innerHTML = x;
-
