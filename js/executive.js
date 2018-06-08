@@ -4,9 +4,9 @@ var myObj, i, j, x = "";
 x= '<tr class="header"> <th style="width:150%;"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Mr" title="Type in a name"></th </tr>'
     myObj = {
 "committee": [
-{"no":"tel:919426179878","name":" Shri Jayen Gandhi","details":["President "],"link":"https://sgsforjsg.github.io/fem/p1.html","img":"p1.jpg"},
+{"no":"tel:919426179878","name":"Shri Jayen Gandhi","details":["President "],"link":"https://sgsforjsg.github.io/fem/p1.html","img":"p1.jpg"},
 {"no":"tel:919879866195","name":"Smt Kavita Shah","details":["Hon. secretary "],"link":"https://sgsforjsg.github.io/fem/p2.html","img":"p2.jpg"},
-{"no":"tel:919825057939","name":"Shri Pankaj Mehta ","details":["IFP Shri ","(chairman, JSG Bharuch Welfare Trust)"],"link":"https://sgsforjsg.github.io/fem/p3.html","img":"p3.jpg"},
+{"no":"tel:919825057939","name":"Shri Pankaj Mehta ","details":["IFP Shri ","(chairman-JSG Bharuch Welfare Trust)"],"link":"https://sgsforjsg.github.io/fem/p3.html","img":"p3.jpg"},
 {"no":"tel:919998014360","name":"Shri Jagdish Mehta ","details":["vice president","Hon. joint secretary "],"link":"https://sgsforjsg.github.io/fem/p4.html","img":"p4.jpg"},
 {"no":"tel:919227612502","name":"Smt Kataki Mehta","details":["Treasurer","chairperson women empower JSGIF "],"link":"https://sgsforjsg.github.io/fem/p5.html","img":"p5.jpg"},
 {"no":"tel:919898046441","name":"Shri Dhirendra Shah","details":["NFP","( former chairman Gujarat region )"],"link":"https://sgsforjsg.github.io/fem/p6.html","img":"p6.jpg"},
