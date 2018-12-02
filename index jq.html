@@ -1,0 +1,406 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+      <title>My Page</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+      <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+      <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	 <link href="https://fonts.googleapis.com/css?family=Mukta+Vaani:400" rel="stylesheet">
+	 
+      <style>
+       
+	 body {
+ font-family: 'Mukta Vaani', sans-serif;
+  
+	font-size: 1em;
+}
+		 
+         ab{ font-size: 25em;
+         display:none
+         }
+         th { border-bottom: 1px solid #d6d6d6;
+         }
+         tr:nth-child(even) {
+         background: #e9e9e9;
+         }
+      </style>
+   </head>
+   <body>
+      <div data-role="page">
+      <div data-role="header">
+         <h1>My Title</h1>
+      </div>
+      <!-- /header -->
+      <div data-role="content" id="news">	
+         <br>Do. પર ક્લિક કરીએ ત્યારે  તેનુ પોપ અપ થવુ  જોઇએ  જેમાં વધારે ડીટેઇલ આવી જોઇએ,  સ્ટોરજ ની મદદ થી ડિફોલ્ટ પ્લાંટ સ્ટોર  કરો.
+      </div>
+      <!-- /content -->
+      <div>
+      <table id="myTable"  >
+         <tr class="header">
+            <th  colspan="2" style="width:10%;">
+               <select class="form-control" id="myInput1" onchange="myFunction1()" >
+                  <option>ALL</option>
+                  <option>Daily*</option>
+                  <option>MON</option>
+                  <option>TUE</option>
+                  <option>WED</option>
+                  <option>THU</option>
+                  <option>FRI</option>
+                  <option>SAT</option>
+               </select>
+            </th>
+            <th style="width:87%;"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...." title="Type in a name"></th>
+            <th style="width:0.1%;">Room No</th>
+         </tr>
+         <!------------------------data past here from excel File------->
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>Daily* All Monday Tuesday Wednesday Thursday Friday Saturday</ab>
+            </td>
+            <td>16  to 18 </td>
+            <td>Dr. Dushyant Varia      <br>Physician ફિઝિશિયન</td>
+            <td>12</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>TUE All</ab>
+            </td>
+            <td>07  to 09 </td>
+            <td>Dr.R P.Patel    (A)           <br>Radiologist એક્સ રે/સોનોગ્રાફી</td>
+            <td>11</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>TUE All</ab>
+            </td>
+            <td>9.30 to 10.30</td>
+            <td>Dr.Pankaj Khandelwal/ Dr.Harshil Shah<br>Gestrointestinal & Bariatric Surgeon /General Lap. Surgeon પેટ અને આંતરડા ના ડો / વજન ઓછં કરવાનું ઓપરેશન/ દુરબીન થી ઓપરેશન ના નિષ્ણાંત</td>
+            <td>12</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>TUE All</ab>
+            </td>
+            <td>10.15to 11.15</td>
+            <td>Dr. Ashish Shethi  /  Dr. Pankaj Jain<br>Gastroenterologist (GI Medicine) ગેસ્ટ્રોએન્ટેરોલોજી(પેટ અને આંતરડા) ની દવાઓ માટે</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>TUE All</ab>
+            </td>
+            <td>16  to 17 </td>
+            <td>Dr.Mehul N.Modi<br>Neuro Surgeon ન્યુરોસર્જન- મગજ ના ડો</td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>TUE All</ab>
+            </td>
+            <td>16  to 17 </td>
+            <td>Dr.Ajay V Valia<br>IVF Specialist આઇવીએફ નિષ્ણાત( વંધ્યત્વ )</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>09  to 10 </td>
+            <td>Dr. Paritosh Modi  (A)     <br>Radiologist એક્સ રે/સોનોગ્રાફી</td>
+            <td>11</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>9.30  to 10:30 </td>
+            <td>Dr. Alpesh Parekh<br>Orthopedic Surgeon હાડકા અને સાંધા ના રોગો ના ઓપરેશન</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>10  to 12 </td>
+            <td>Dr.Rupal Shah/  Dr.Paras Chaudhary/     Dr.Harsha Jawarkar   <br>Eye Specialist આંખ ના રોગો ના નિષ્ણાંત</td>
+            <td>10B</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>14  to 16 </td>
+            <td>Dr.  Gautam Patel       <br>Gen. Surgeon જનરલ સર્જન</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>15.30 to 16.30 </td>
+            <td>Dr. Divyank Vankawala<br>Dermatologist (Skin & Hair Transplant specialist)  વાળ અને ચામડી ને લગતા રોગો માટે</td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>09.30 to 10.30</td>
+            <td>Dr.Divyesh V Shukla / Dr.Shilpi D Shukla<br>Gynec.Lap. Surgeon જનરલ સર્જન દુરબીન થી થતી સર્જરી </td>
+            <td>12</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>09.30 to 10.30</td>
+            <td>Dr. Ashish Goti, MS, DNB <br>Urologist  કીડની ને લગતા રોગો </td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>WED All</ab>
+            </td>
+            <td>16.30 to 18.30</td>
+            <td>Dr. Sunil Nagrani        <br>Ortho.Surgeon હાડકા અને સાંધા ના રોગો ના ઓપરેશન</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>THU All</ab>
+            </td>
+            <td>15.30 to 17.30</td>
+            <td>Dr. Gaurang Joshi<br>ENT કાન, નાક, ગળા ના રોગ માટે</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>THU All</ab>
+            </td>
+            <td>17  to 18.30</td>
+            <td>Dr. RP Patel    (A)              <br>Radiologist એક્સ રે/સોનોગ્રાફી</td>
+            <td>11</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>THU All</ab>
+            </td>
+            <td>15.30 to 17.30</td>
+            <td>Dr. Gaurang Amin<br>Eye specialist આંખ ના રોગો ના નિષ્ણાંત</td>
+            <td>10 B</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>THU All</ab>
+            </td>
+            <td>10  to 11 </td>
+            <td>Dr. Niraj Bhatt (1st Thursday) /<br>Oncologist Onco Medicine) કેંસર ની દવાઓ </td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>THU All</ab>
+            </td>
+            <td>16  to 17 </td>
+            <td>Dr. Jigar Patel (Rest all Thursday)<br>Oncologist Onco Medicine) કેંસર ની દવાઓ </td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>10  to 11 </td>
+            <td>Dr.Vijay Thakore (First Friday only)<br>Vascular and Endovascular Surgeon  વૅસ્ક્યુલર અને એન્ડોવસ્ક્યુલર સર્જરી</td>
+            <td>12</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>15.30 to 16.30</td>
+            <td>Dr.Rajesh Mahida<br>Laparoscopic Surgeon દુરબીન થી થતી સર્જરી </td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>16  to 18 </td>
+            <td>Dr.Rajeev Kharvar<br>Cardiologist હૃદય રોગ</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>15  to 17 </td>
+            <td>Dr.Santosh Zacharias<br>Orthopedic Surgeon હાડકા અને સાંધા ના રોગો ના ઓપરેશન</td>
+            <td>10B</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>15.30 to 16.30</td>
+            <td>Dr.Jatin Desai ,MS, MCH<br>Oncosurgeon કેંસર ને લગતા ઓપરેશન</td>
+            <td>10B</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>FRI All</ab>
+            </td>
+            <td>09  to 11 </td>
+            <td>Dr. Paritosh Modi  (A)      <br>Radiologist એક્સ રે/સોનોગ્રાફી</td>
+            <td>11</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>SAT All</ab>
+            </td>
+            <td>15  to 17 </td>
+            <td>Dr.Chaula  Gharia      <br>Skin specialist ચામડી ને લગતા રોગો માટે</td>
+            <td>10A</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>SAT All</ab>
+            </td>
+            <td>09  to 11 </td>
+            <td>Dr. Paritosh Modi (A)       <br>Radiologist એક્સ રે/સોનોગ્રાફી</td>
+            <td>11</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>SAT All</ab>
+            </td>
+            <td>10.30 to 12 </td>
+            <td>Dr. Suhash Y. Lele<br>Cardiologist હૃદય રોગ</td>
+            <td>3</td>
+         </tr>
+         <tr>
+            <td style="width:0.1%;" >
+               <ab>SAT All</ab>
+            </td>
+            <td>10  to 12 </td>
+            <td>Dr. Kaushik Trivedi / Dr. Nirmit Yagnik <br>Cardiologist હૃદય રોગ</td>
+            <td>12</td>
+         </tr>
+         <!------------------------data past here from excel File------->
+      </table>
+      
+      <!-- /page -->
+   </body>
+   <script>
+		 document.getElementById("news").innerHTML = "Visiting doctors as per schedle";
+      document.getElementById("myInput1").value =" ";
+      function divas() {
+      			var d = new Date();
+      			var weekday = new Array(7);
+      			weekday[0] = "ALL";
+      			weekday[1] = "MON";
+      			weekday[2] = "TUE";
+      			weekday[3] = "WED";
+      			weekday[4] = "THU";
+      			weekday[5] = "FRI";
+      			weekday[6] = "SAT";
+      			var n1 = weekday[d.getDay()];	
+      		
+      			document.getElementById("myInput1").value =(n1);									
+      			 document.getElementById("news").innerHTML = "Visiting doctors as per schedle";	
+      		};
+      function hid() 	{
+      			//document.getElementById ("myTable").style.display = 'none';
+      			 var xx = document.getElementById("myTable");
+      			if (xx.style.display === "none") {
+      				xx.style.display = "block";
+      			} else {
+      				xx.style.display = "none";
+      			}
+      		};
+      window.onload = function() 	{			   
+      						
+      						divas();
+      						myFunction1();  
+      					};
+                  
+      function myFunction() {
+      					var input, filter, table, tr, td, i;
+      					input = document.getElementById("myInput");
+      					filter = input.value.toUpperCase();
+      					table = document.getElementById("myTable");
+      					tr = table.getElementsByTagName("tr");
+      					for (i = 0; i < tr.length; i++) {
+      													  td = tr[i].getElementsByTagName("td")[2];
+      													  if (td) 	{
+      																if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      																				  tr[i].style.display = "";
+      																				} else {
+      																						  tr[i].style.display = "none";
+      																						}
+      																} 	
+      													}
+      					// document.getElementById("myInput1").value = "All";
+      				};
+                  
+                  function myFunction1() 	{
+      						var input, filter, table, tr, td, i;
+      						input = document.getElementById("myInput1");
+      						
+      						filter = input.value.toUpperCase();
+      						table = document.getElementById("myTable");
+      						tr = table.getElementsByTagName("tr");
+      						for (i = 0; i < tr.length; i++) {
+      						  td = tr[i].getElementsByTagName("td")[0];
+      						  if (td) {
+      							if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      							  tr[i].style.display = "";
+      							} else {
+      							  tr[i].style.display = "none";
+      							}
+      						  } 	
+      						}
+      					
+      						
+      					};
+                function myFunction2() {
+      					var input, filter, table, tr, td, i;
+      					input = document.getElementById("myInput2");
+      					filter = input.value.toUpperCase();
+      					table = document.getElementById("myTable2");
+      					tr = table.getElementsByTagName("tr");
+      					for (i = 0; i < tr.length; i++) {
+      													  td = tr[i].getElementsByTagName("td")[0];
+      													  if (td) 	{
+      																if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      																				  tr[i].style.display = "";
+      																				} else {
+      																						  tr[i].style.display = "none";
+      																						}
+      																} 	
+      													}
+      					// document.getElementById("myInput1").value = "All";
+      				};
+       function myFunction21() {
+      					var input, filter, table, tr, td, i;
+      					input = document.getElementById("myInput21");
+      					filter = input.value.toUpperCase();
+      					table = document.getElementById("myTable2");
+      					tr = table.getElementsByTagName("tr");
+      					for (i = 0; i < tr.length; i++) {
+      													  td = tr[i].getElementsByTagName("td")[1];
+      													  if (td) 	{
+      																if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      																				  tr[i].style.display = "";
+      																				} else {
+      																						  tr[i].style.display = "none";
+      																						}
+      																} 	
+      													}
+      					// document.getElementById("myInput1").value = "All";
+      				};
+      
+      
+   </script>
+</html>
