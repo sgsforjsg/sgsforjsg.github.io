@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery simple Slider</title>
+	  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+  <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<link rel="stylesheet" href="./css/slider.css">
+	<style>
+		body {
+		
+			max-width: 1024px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 20px;
+		
+			 text-align: justify;
+			font-size: 14px;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+	</style>
+</head>
+<body>
+
+
+<h3 >S M Porwal <br><small><i>The Kitchen Shop</i></small> </h3>
+
+
+<div class="slider-container">
+  <div class="slider">
+  
+    <div class="slider__item">
+      <img src="images/b85 (1).jpg" alt="">
+      <span class="slider__caption"> .<a href="">Далее >></a> </span>
+    </div>
+    <div class="slider__item">
+      <img src="images/b85 (2).jpg" alt="">
+      <span class="slider__caption">2  . Culpa, facilis.</span>
+    </div>
+    <div class="slider__item">
+      <img src="images/b85 (3).jpg" alt="">
+      <span class="slider__caption">3  . Suscipit, culpa!</span>
+    </div>
+  </div>
+    <div class="slider__switch slider__switch--prev" data-ikslider-dir="prev">
+      <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20"><path d="M13.89 17.418c.27.272.27.71 0 .98s-.7.27-.968 0l-7.83-7.91c-.268-.27-.268-.706 0-.978l7.83-7.908c.268-.27.7-.27.97 0s.267.71 0 .98L6.75 10l7.14 7.418z"/></svg></span>
+    </div>
+    <div class="slider__switch slider__switch--next" data-ikslider-dir="next">
+      <span><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20"><path d="M13.25 10L6.11 2.58c-.27-.27-.27-.707 0-.98.267-.27.7-.27.968 0l7.83 7.91c.268.27.268.708 0 .978l-7.83 7.908c-.268.27-.7.27-.97 0s-.267-.707 0-.98L13.25 10z"/></svg></span>
+    </div>
+</div>
+<h4>Kitchen ware, Home Appliances, Hob Top, Chimney, Steel utensil, Gift Articles, and many more </h4>
+<h5>65, GF, Shree Rang Multiplex Complex, <br>Zadeshwar Road, Bhaurch </h5>
+Pravin Shah-9427872400 <br>Shailesh shah-9427816122
+
+
+
+
+
+<script src="./src/slider.js"></script>
+<script>
+$(".slider-container").ikSlider({
+  speed: 500
+});
+$(".slider-container").on('changeSlide.ikSlider', function (evt) { console.log(evt.currentSlide); });
+
+</script>
+
+</body>
+</html>
