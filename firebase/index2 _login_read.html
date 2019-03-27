@@ -35,6 +35,7 @@
  
 
     alert("user="+user);
+	
 }).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
@@ -50,6 +51,47 @@
   //
   
   var db=firebase.firestore();
+  //  script for reading
+  db.collection("doctor")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+		
+            if (change.type === "added") {
+			const a=change.doc.data();
+			
+			var index = $("table tbody tr:last-child").index();
+			
+			//alert("ohh!!!! its working!!"+index );
+			var row = '<tr>' +
+            '<td>'+a.Name +'</td>' +
+            '<td>'+a.Speciality +'</td>' +
+            '<td>'+a.day +'<br>'+a.Time+'</td>' +
+			'<td></td>' +
+        '</tr>';
+    	$("table").append(row);		
+               // console.log("New city: ", change.doc.data());
+            }
+			
+			
+			
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Removed city: ", change.doc.data());
+            }
+        });
+	
+		
+    }
+
+     
+	);
+	//
+  
+  
+  
+  
    function divas() { 
   
       			var d = new Date();
@@ -105,41 +147,7 @@
   <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 </div>
 <script>
-db.collection("doctor")
-    .onSnapshot(function(snapshot) {
-        snapshot.docChanges().forEach(function(change) {
-		
-            if (change.type === "added") {
-			const a=change.doc.data();
-			
-			var index = $("table tbody tr:last-child").index();
-			
-			//alert("ohh!!!! its working!!"+index );
-			var row = '<tr>' +
-            '<td>'+a.Name +'</td>' +
-            '<td>'+a.Speciality +'</td>' +
-            '<td>'+a.day +'<br>'+a.Time+'</td>' +
-			'<td></td>' +
-        '</tr>';
-    	$("table").append(row);		
-               // console.log("New city: ", change.doc.data());
-            }
-			
-			
-			
-            if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.data());
-            }
-            if (change.type === "removed") {
-                console.log("Removed city: ", change.doc.data());
-            }
-        });
-	
-		
-    }
 
-     
-	);
 	
 
 			
