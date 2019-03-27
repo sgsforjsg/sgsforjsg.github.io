@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+ <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDNRtpa86v986mO3pePPursUW1XtahmrDo",
+    authDomain: "gfem-b7b57.firebaseapp.com",
+    databaseURL: "https://gfem-b7b57.firebaseio.com",
+    projectId: "gfem-b7b57",
+    storageBucket: "gfem-b7b57.appspot.com",
+    messagingSenderId: "144283479484"
+  };
+  firebase.initializeApp(config);
+  // login
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  alert("token="+token);
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+ 
+
+    alert("user="+user);
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+    alert("Err="+errorCode);
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+  
+  //
+  
+  var db=firebase.firestore();
+   function divas() { 
+  
+      			var d = new Date();
+      			var weekday = new Array(8);
+      			weekday[0] = " ";
+      			weekday[1] = "MON";
+      			weekday[2] = "TUE";
+      			weekday[3] = "WED";
+      			weekday[4] = "THU";
+      			weekday[5] = "FRI";
+      			weekday[6] = "SAT";
+				weekday[7] = "ALL";
+      			var n1 = weekday[d.getDay()];	
+      		//	document.getElementById("sel1").value =n1;	
+				
+				
+      		};
+  
+</script>
+</head>
+<body>
+
+<div class="container">
+  <h2>GNFC Hospital <button onclick="login()" align="right" style="width:auto;">Admin</button></h2>
+  <p>Visiting doctors list</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Type doctors name, speciality to search....." >
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th width="40%">Dr.</th>
+        <th width="30%">Speciality</th>
+        <th width="20%">
+		<select class="form-control" id="sel1">
+		<option>all</option>
+        <option>MON</option>
+        <option>TUE</option>
+        <option>WED</option>
+		<option>THU</option>
+        <option>FRI</option>
+        <option>SAT</option>
+        <option disabled>SUN</option>
+        <option>Daily</option>
+      </select>
+		</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      
+    </tbody>
+  </table>
+  
+  <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+</div>
+<script>
+db.collection("doctor")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+		
+            if (change.type === "added") {
+			const a=change.doc.data();
+			
+			var index = $("table tbody tr:last-child").index();
+			
+			//alert("ohh!!!! its working!!"+index );
+			var row = '<tr>' +
+            '<td>'+a.Name +'</td>' +
+            '<td>'+a.Speciality +'</td>' +
+            '<td>'+a.day +'<br>'+a.Time+'</td>' +
+			'<td></td>' +
+        '</tr>';
+    	$("table").append(row);		
+               // console.log("New city: ", change.doc.data());
+            }
+			
+			
+			
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Removed city: ", change.doc.data());
+            }
+        });
+	
+		
+    }
+
+     
+	);
+	
+
+			
+</script>
+<script>
+$(document).ready(function(){
+
+ $("#sel1").focus(); 
+
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+ $("#sel1").change(function() {
+     var value = $(this).val().toLowerCase();
+	  $("#myTable tr").filter(function() {	
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+
+
+});
+divas();
+</script>
+<script>
+function login(){
+alert("login");
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+alert("login");
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+}
+</script>
+</body>
+</html>
