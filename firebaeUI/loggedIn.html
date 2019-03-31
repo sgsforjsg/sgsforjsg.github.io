@@ -28,7 +28,6 @@
     messagingSenderId: "144283479484"
   };  
   firebase.initializeApp(config);  
-    var db=firebase.firestore();
  </script> 
 <style type="text/css">
     body {
@@ -120,7 +119,6 @@
  <script>  
  // Track the UID of the current user.  
  var currentUid = null;  
-
  firebase.auth().onAuthStateChanged(function(user) {  
   // onAuthStateChanged listener triggers every time the user ID token changes.  
   // This could happen when a new user signs in or signs out.  
@@ -131,59 +129,25 @@
    // Update the current user UID.  
    currentUid = user.uid;  
    document.body.innerHTML = '<h1> Congrats ' + user.displayName + ', you are done! </h1> <h2> Now get back to what you love building. </h2> <h2> Need to verify your email address or reset your password? Firebase can handle all of that for you using the email you provided: ' + user.email + '. <h/2>';  
- loaddata();
- } else {  
+  } else {  
    // Sign out operation. Reset the current user UID.  
    currentUid = null;  
    console.log("no user signed in");  
-    
   }  
- });
- 
-function loaddata(){
-	alert("ohh!!!! its working!!");
-//db.collection("cities").where("state", "==", "CA")
-db.collection("cities")
-    .onSnapshot(function(snapshot) {
-        snapshot.docChanges().forEach(function(change) {
-		
-			const a=change.doc.data();
-			alert("ohh!!!! id!"+change.doc.id);
-	//document.getElementById("ab").innerHTML =a.born;
-	
-   
-		
-            if (change.type === "added") {
-                console.log("New city: ", change.doc.data());
-				 var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
-            '<td><name="name" id="'+change.doc.id+'">'+a.name +'</td>' +
-            '<td><input type="text" class="form-control" name="department" id="department" value="'+a.country+'" ></td>' +
-            '<td><input type="text" class="form-control" name="phone" id="phone">'+a.population+'</td>' +
-			
-        '</tr>';
-    	$("table").append(row);		
-		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-            }
-            if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.id);
-				document.getElementById(change.doc.id).innerHTML =a.name;
-            }
-            if (change.type === "removed") {
-                console.log("Removed city: ", change.doc.data());
-            }
-        });
-    });
-	}
- 
+ });  
  </script>  
 
  <div class="container">
   <h1>Congrats you're done! Now get back to what you love building.</h1> 
         <div class="table-wrapper">
             <div class="table-title">
-                <div class="row">               
+                <div class="row">
                   
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Add New</button>
+						<button type="button" class="btn btn-info f1"><i class="fa fa-plus"></i>add o new data</button>
+						<button type="button" class="btn btn-info f2"><i class="fa fa-plus"></i> Refresh all data</button>
+                    </div>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -200,8 +164,5 @@ db.collection("cities")
                 </tbody>
             </table>
         </div>
-    </div> 
-		<script>
-		
-	</script>
+    </div> 	
  </html>
