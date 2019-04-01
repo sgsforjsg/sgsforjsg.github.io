@@ -48,7 +48,49 @@ datas()
   } 
  }); 
   function datas(){
+   db.collection("doctor")
+    .onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+		
+            if (change.type === "added") {
+			const a=change.doc.data();
+			//console.log(doc.id, " => ", doc.data());
+    /*         
+			var index = $("table tbody tr:last-child").index();
+			
+		//	alert("ohh!!!! its working!!"+change.doc.id );
+             
+			var row = '<tr id="'+change.doc.id+'">' +
+            '<td>'+a.Name +'</td>' +
+            '<td>'+a.Speciality +'</td>' +
+            '<td>'+a.day +'<br>'+a.Time+'</td>' +
+			'<td><span class="glyphicon glyphicon-ok"></span></td>' +
+        '</tr>';
+    	$("table").append(row);
+             */
+                console.log("New city: ", change.doc.data());
+            }
+			
+			
+			
+            if (change.type === "modified") {
+                console.log("Modified city: ", change.doc.data());
+            }
+            if (change.type === "removed") {
+                console.log("Removed city: ", change.doc.data());
+            }
+        });
+	
+		
+    }
+
+     
+	);
+	
+
   alert("hi");
+   
+   
   };
  </script>  
  <h1>Congrats you're done! Now get back to what you love building.</h1> 
