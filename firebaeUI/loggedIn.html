@@ -46,7 +46,7 @@
    // Otherwise ignore if this is a token refresh.  
    // Update the current user UID.  
    currentUid = user.uid;  
-   document.body.innerHTML = '<h5> Congrats ' + user.displayName + ', you are done! </h5> <h6> Now get back to what you love building. </h6> <h6> Need to verify your email address or reset your password? Firebase can handle all of that for you using the email you provided: ' + user.email + '. </h6>';  
+  // document.body.innerHTML = '<h5> Congrats ' + user.displayName + ', you are done! </h5> <h6> Now get back to what you love building. </h6> <h6> Need to verify your email address or reset your password? Firebase can handle all of that for you using the email you provided: ' + user.email + '. </h6>';  
  var db=firebase.firestore();
    db.collection("doctor")
     .onSnapshot(function(snapshot) {
@@ -55,7 +55,7 @@
             if (change.type === "added") {
 			const a=change.doc.data();
 			//console.log(doc.id, " => ", doc.data());
-    /*         
+            
 			var index = $("table tbody tr:last-child").index();
 			
 		//	alert("ohh!!!! its working!!"+change.doc.id );
@@ -67,7 +67,7 @@
 			'<td><span class="glyphicon glyphicon-ok"></span></td>' +
         '</tr>';
     	$("table").append(row);
-             */
+             
                 console.log("New city: ", change.doc.data());
             }
 			
@@ -86,7 +86,7 @@
 
      
 	);
-	  datas()
+	 // datas()
   } else {  
    // Sign out operation. Reset the current user UID.  
    currentUid = null;  
