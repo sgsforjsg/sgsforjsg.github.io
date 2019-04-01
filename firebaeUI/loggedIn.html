@@ -137,6 +137,28 @@
   
   <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 </div>
+<script>
+$(document).ready(function(){
 
+ $("#sel1").focus(); 
+
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+ $("#sel1").change(function() {
+     var value = $(this).val().toLowerCase();
+	  $("#myTable tr").filter(function() {	
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+
+
+});
+	
+</script>
  </body> 
  </html>
