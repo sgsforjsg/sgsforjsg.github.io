@@ -23,7 +23,7 @@
     messagingSenderId: "144283479484"
   };  
   firebase.initializeApp(config); 
-   var db=firebase.firestore();
+
  </script>  
  <body>  
  <!-- A simple example script to add text to the page that displays the user's Display Name and Email -->  
@@ -48,6 +48,7 @@ datas()
   } 
  }); 
   function datas(){
+	     var db=firebase.firestore();
    db.collection("doctor")
     .onSnapshot(function(snapshot) {
         snapshot.docChanges().forEach(function(change) {
