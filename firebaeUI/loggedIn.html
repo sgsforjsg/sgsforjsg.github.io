@@ -134,7 +134,7 @@
       
     </tbody>
   </table>
-  
+  <button onclick="savedata()" align="right" style="width:auto;">Save Data</button>
   <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 </div>
 <script>
@@ -160,5 +160,26 @@ $(document).ready(function(){
 });
 	
 </script>
+function savedata(){
+var db = firebase.firestore();
+var citiesRef = db.collection("doctor1");
+                $('#myT tbody>tr').each(function () {
+						var sid=$(this).attr("id")
+						var currentRow=$(this).closest("tr"); 
+						 var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+						 var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+						 var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+						// var data=col1+"\n"+col2+"\n"+col3;
+						 //alert(data);
+									citiesRef.doc(sid).set({
+									name: col1,
+									capital: false, population: 860000,
+									regions: ["west_coast", "norcal"] 
+									});
+                }); 
+}
+	</script>
+	
+	
  </body> 
  </html>
