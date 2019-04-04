@@ -1,7 +1,7 @@
 <!DOCTYPE html>  
  <html lang="en">  
  <head>  
-  <title>Smartest City</title>
+  <title>Smartest City Bharuch</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -162,8 +162,9 @@ $(document).ready(function(){
 </script>
 	<script>
 function savedata(){
+	alert("Please wait ..........")
 var db = firebase.firestore();
-var citiesRef = db.collection("doctor1");
+var citiesRef = db.collection("doctor2");
                 $('#myT tbody>tr').each(function () {
 						var sid=$(this).attr("id")
 						var currentRow=$(this).closest("tr"); 
@@ -179,6 +180,7 @@ var citiesRef = db.collection("doctor1");
 									});
                 }); 
 }
+		alert("Data Added")
 	</script>
 	
 	
