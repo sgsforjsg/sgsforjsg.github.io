@@ -1,1 +1,7 @@
-UI
+Indexblog - file for login
+loggedIn.html-reading data after logging
+index_r  reading data without loging and query on day value
+task  1 data editing only status
+      2 data editing all data
+      3 data new raw 
+      4 data deleting
