@@ -45,7 +45,7 @@
          function datas(){
          var actions = $("table td:last-child").html();
          var db=firebase.firestore();
-          db.collection("doctor1").where("day", "==", "wed")  // day from formula
+          db.collection("doctor1"))  // day from formula       .where("day", "==", "wed"
            .onSnapshot(function(snapshot) {
                snapshot.docChanges().forEach(function(change) {
                    if (change.type === "added") {
@@ -179,7 +179,7 @@
                      '<td><input type="text" class="form-control" name="day" id="phone"></td>' +
          			 '<td><input type="text" class="form-control" name="time" id="name1"></td>' +
                      '<td><input type="text" class="form-control" name="room" id="department1"></td>' +
-                   	'<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a><a class="delete" title="Delete" id="'+change.doc.id +'" data-toggle="tooltip" ><i class="material-icons">&#xE872;</i></a></td>' + +
+                   	'<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a><a class="delete" title="Delete" data-toggle="tooltip" ><i class="material-icons">&#xE872;</i></a></td>' + +
                  '</tr>';
              	$("table").append(row);		
          		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
