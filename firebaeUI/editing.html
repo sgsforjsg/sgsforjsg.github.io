@@ -45,7 +45,7 @@
          function datas(){
          var actions = $("table td:last-child").html();
          var db=firebase.firestore();
-          db.collection("doctor1"))  // day from formula       .where("day", "==", "wed"
+          db.collection("doctor1")  // day from formula       .where("day", "==", "wed"
            .onSnapshot(function(snapshot) {
                snapshot.docChanges().forEach(function(change) {
                    if (change.type === "added") {
