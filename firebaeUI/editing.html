@@ -34,14 +34,46 @@
 		 firebase.auth().onAuthStateChanged(function(user) {  
 		    if (user && user.uid != currentUid) {  
 			 currentUid = user.uid;  
-			 datas()
+			 datas2()
 		  } else { 
 		    // Sign out operation. Reset the current user UID. 
 		   currentUid = null;  
 		   console.log("no user signed in");  
 		  } 
 		 }); 
-		//         
+		// 
+	      function datas2(){
+  db.collection("doctor1")//      .where("capital", "==", true)
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", doc.data());
+			//const meetups = doc.data();
+			const a= doc.data();
+			 var index = $("table tbody tr:last-child").index();
+		//	alert("ohh!!!! its working!!"+change.doc.id );
+			var row = '<tr id="'+doc.id+'">' +
+            '<td >'+a.Name +'</td>' +
+			  '<td >'+a.Speciality +'</td>' +
+			'<td >'+a.day +'</td>' +
+          	'<td >'+a.Time +'</td>' +
+			'<td >'+a.Room +'</td>' +
+			'<td><a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a><a class="delete" title="Delete" data-toggle="tooltip" ><i class="material-icons">&#xE872;</i></a></td>' +
+        '</tr>';
+    	$("table").append(row);
+			 // var para = document.createElement("p");
+			 // para.innerText = meetups.name+" "+ meetups.country;
+				
+				//document.body.appendChild(para);
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+  
+  }
+	      
+	      //
          function datas(){
          var actions = $("table td:last-child").html();
          var db=firebase.firestore();
