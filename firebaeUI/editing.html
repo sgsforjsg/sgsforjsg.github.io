@@ -34,6 +34,7 @@
 		 firebase.auth().onAuthStateChanged(function(user) {  
 		    if (user && user.uid != currentUid) {  
 			 currentUid = user.uid;  
+			    console.log("user signed in sucessfully");
 			 datas2()
 		  } else { 
 		    // Sign out operation. Reset the current user UID. 
