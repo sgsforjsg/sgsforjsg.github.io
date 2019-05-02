@@ -44,7 +44,7 @@
 		 }); 
 		// 
 	      function datas2(){
-  db.collection("doctor1")//      .where("capital", "==", true)
+  db.collection("doctor")//      .where("capital", "==", true)
     .get()
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -78,7 +78,7 @@
          function datas(){
          var actions = $("table td:last-child").html();
          var db=firebase.firestore();
-          db.collection("doctor1")  // day from formula       .where("day", "==", "wed", should be not onsnapchat
+          db.collection("doctor")  // day from formula       .where("day", "==", "wed", should be not onsnapchat
            .onSnapshot(function(snapshot) {
                snapshot.docChanges().forEach(function(change) {
                    if (change.type === "added") {
@@ -251,7 +251,7 @@
          	$(document).on("click", ".delete", function(){
          	// delete from firestore too
          	 var sid = $(this).closest('tr').attr('id');
-            	db.collection("doctor1").doc(sid).delete().then(function() {
+            	db.collection("doctor").doc(sid).delete().then(function() {
              console.log("Document successfully deleted!");
          }).catch(function(error) {
              console.error("Error removing document: ", error);
@@ -312,7 +312,7 @@
          						
          						
          						  if (sid){ 
-         						 var citiesRef = db.collection("doctor1").doc(sid);
+         						 var citiesRef = db.collection("doctor").doc(sid);
          						
          										return citiesRef.set({						// for overeriting all data				
          									Name:col1,
@@ -325,7 +325,7 @@
          										});
          										 }
          						  if (!sid){  
-         						  var citiesRef = db.collection("doctor1");
+         						  var citiesRef = db.collection("doctor");
          							return citiesRef.add({						// for adding new data (which is added with new raw)				
          									Name:col1,
          									Speciality:col2,
