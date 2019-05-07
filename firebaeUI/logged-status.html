@@ -132,7 +132,7 @@ $(document).on("click","#myT td",function(event) {
 //
 function savedata(){
 var db = firebase.firestore();
-var citiesRef = db.collection("doctor1");
+var citiesRef = db.collection("doctor");
                 $('#myT tbody>tr').each(function () {
 						var sid=$(this).attr("id")
 						var currentRow=$(this).closest("tr"); 
