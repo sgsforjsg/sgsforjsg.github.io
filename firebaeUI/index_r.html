@@ -1,130 +1,159 @@
 <!DOCTYPE html>  
- <html lang="en">  
- <head>  
-  <title>Smartest City</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
- <!-- Below is the initialization snippet for my Firebase project. It will vary for each project --> 
-	 <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-functions.js"></script>
- <script>  
-  // Initialize Firebase  
-  var config = {  
-  apiKey: "AIzaSyDNRtpa86v986mO3pePPursUW1XtahmrDo",
-    authDomain: "gfem-b7b57.firebaseapp.com",
-    databaseURL: "https://gfem-b7b57.firebaseio.com",
-    projectId: "gfem-b7b57",
-    storageBucket: "gfem-b7b57.appspot.com",
-    messagingSenderId: "144283479484"
-  };  
-  firebase.initializeApp(config); 
- </script>  
- <body>  
- <!-- A simple example script to add text to the page that displays the user's Display Name and Email -->  
- <script>  
- // Track the UID of the current user.  
- 
-  datas()
-  function datas(){
-var db=firebase.firestore();
-   db.collection("doctor")
-    .onSnapshot(function(snapshot) {
-        snapshot.docChanges().forEach(function(change) {
-            if (change.type === "added") {
-			const a=change.doc.data();
-			//console.log(doc.id, " => ", doc.data());
-			var index = $("table tbody tr:last-child").index();
-		//	alert("ohh!!!! its working!!"+change.doc.id );
-			var row = '<tr id="'+change.doc.id+'">' +
-            '<td id="a">'+a.Name +'</td>' +
-            '<td id="b">'+a.Speciality +'</td>' +
-            '<td id="c">'+a.day +'</td>' +
-			'<td id="c">'+a.Time +'</td>' +
-			'<td id="c">'+a.Room +'</td>' +
-			'<td><span class="glyphicon glyphicon-ok"></span></td>' +
-        '</tr>';
-    	$("table").append(row);
-		$("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf("wed") > -1)
-    });
-                console.log("New city: ", change.doc.data());
+<html lang="en">
+   <head>
+      <title>Smartest City</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <!-- Below is the initialization snippet for my Firebase project. It will vary for each project --> 
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-messaging.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-functions.js"></script>
+      <script>  
+         // Initialize Firebase  
+         var config = {  
+         apiKey: "AIzaSyDNRtpa86v986mO3pePPursUW1XtahmrDo",
+           authDomain: "gfem-b7b57.firebaseapp.com",
+           databaseURL: "https://gfem-b7b57.firebaseio.com",
+           projectId: "gfem-b7b57",
+           storageBucket: "gfem-b7b57.appspot.com",
+           messagingSenderId: "144283479484"
+         };  
+         firebase.initializeApp(config); 
+      </script>  
+   <body>
+      <!-- A simple example script to add text to the page that displays the user's Display Name and Email -->  
+      <script>  
+         // Track the UID of the current user.  
+          
+          datas()
+         
+            function datas(){
+         var d = new Date();
+              			var weekday = new Array(8);
+              			weekday[0] = " ";
+              			weekday[1] = "MON";
+              			weekday[2] = "tue";
+              			weekday[3] = "WED";
+              			weekday[4] = "THU";
+              			weekday[5] = "FRI";
+              			weekday[6] = "SAT";
+         			weekday[7] = "ALL";
+              			 var n1 = weekday[d.getDay()];
+         
+           var fcolor='<font color="red">';
+           fcolor="";
+           var td = new Date();
+          var  dv=0;
+         	tv=td.getDay();
+            td=new Date(td.getFullYear(), td.getMonth(), td.getDate(),16,00,00)
+         var db=firebase.firestore();
+           db.collection("doctor")
+          
+            .onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(function(change) {
+                    if (change.type === "added") {
+         		const a=change.doc.data();
+         	var 	disp=(td-a.Tstamp.toDate())/(1000*60*60*24);
+         		if (a.day==="mon"){dv=2;}
+         		if (a.day==="tue"){dv=3;}
+         		if (a.day==="wed"){dv=4;}
+         		if (a.day==="thu"){dv=5;}
+         		if (a.day==="fri"){dv=6;}
+         		if (a.day==="sat"){dv=7;}
+         		if (a.day==="sun"){dv=1;}
+         		dispfor=(td-a.Tstamp.toDate())/(1000*60*60*24);
+         		fcode=(tv-dv);
+         		if (fcode<0){fcode=fcode+8;}
+         		var fcolor='';
+         		if ( dispfor<(fcode) &&  a.Status=="N"){var fcolor='<font color="red">';}
+         		//if ( a.Status==="Y" && ){alert("y==="+a.Name);}
+         			//if ( a.Status=="Y"){alert("y==");}	
+         		//console.log(doc.id, " => ", doc.data());
+         		var index = $("table tbody tr:last-child").index();
+         	//	alert("ohh!!!! its working!!"+change.doc.id );
+         		var row = '<tr id="'+change.doc.id+'">' +
+                    '<td id="a">'+fcolor+a.Name +'</td>' +
+                   '<td id="c">'+a.Speciality +'</td>' +
+         	  '<td >'+a.day +'</td>' +
+                   	'<td id="c">'+a.Time+'</td>' +
+         		'<td id="c">'+a.Room +'</td>' +
+         		
+                '</tr>';
+            	$("table").append(row);
+         	$("#myTable tr").filter(function() {
+         	//alert(n1);
+              $(this).toggle($(this).text().toLowerCase().indexOf(n1) > -1)
+            });
+                        console.log("New city: ", change.doc.data());
+                    }
+                    if (change.type === "modified") {
+                        console.log("Modified city: ", change.doc.data());
+                    }
+                    if (change.type === "removed") {
+                        console.log("Removed city: ", change.doc.data());
+                    }
+                });
             }
-            if (change.type === "modified") {
-                console.log("Modified city: ", change.doc.data());
-            }
-            if (change.type === "removed") {
-                console.log("Removed city: ", change.doc.data());
-            }
-        });
-    }
-	);
-  };
-  function divas() {   
-      			var d = new Date();
-      			var weekday = new Array(8);
-      			weekday[0] = " ";
-      			weekday[1] = "MON";
-      			weekday[2] = "TUE";
-      			weekday[3] = "WED";
-      			weekday[4] = "THU";
-      			weekday[5] = "FRI";
-      			weekday[6] = "SAT";
-				weekday[7] = "ALL";
-      			var n1 = weekday[d.getDay()];	
-      			document.getElementById("myInput").value =n1;		
-				
-      		};
-  
- </script>  
- </head>  
-<body>
- <h5>.......</h5>
-<div class="container">
-  <h2>GNFC Hospital </h2>
-  <p>Visiting doctors list</p>  
-  <input class="form-control" id="myInput"  type="text" placeholder="Type day, doctors name, speciality, etc to search....." >
-  <br>
-  <table id="myT"class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th width="37%">Dr.</th>
-        <th width="30%">Speciality</th>
-        <th width="10%">Day	</th>
-		<th width="10%">Time</th>
-		<th width="10%">Room</th>
-		<th width="3%">?</th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-    </tbody>
-  </table>
-   <button onclick="savedata()" align="right" style="width:auto;">Save Data</button>
-  <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
-</div>
-<script>
-$(document).ready(function(){
-
- $("#sel1").focus(); 
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
- $("#sel1").change(function() {
-     var value = $(this).val().toLowerCase();
-	  $("#myTable tr").filter(function() {	
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
- </body> 
- </html>
+         );
+         
+         
+          };
+          function divas() {   
+              			var d = new Date();
+              			var weekday = new Array(8);
+              			weekday[0] = " ";
+              			weekday[1] = "MON";
+              			weekday[2] = "tue";
+              			weekday[3] = "WED";
+              			weekday[4] = "THU";
+              			weekday[5] = "FRI";
+              			weekday[6] = "SAT";
+         			weekday[7] = "ALL";
+              			 var n1 = weekday[d.getDay()];	
+              			
+              		};
+          
+      </script>  
+      </head>  
+      <body>
+         <h5>.......</h5>
+         <div class="container">
+            <h2>GNFC Hospital </h2>
+            <p>Visiting doctors list <br>  pending -index on name or day or speciality</p>
+            <input class="form-control" id="myInput"  type="text" placeholder="Type day, doctors name, speciality, etc to search....." >
+            <br>
+            <table id="myT"class="table table-bordered table-striped">
+               <thead>
+                  <tr>
+                     <th width="40%">Dr.</th>
+                     <th width="39%">Speciality</th>
+                     <th width="7%">Day	</th>
+                     <th width="7%">Time</th>
+                     <th width="7%">Room</th>
+                  </tr>
+               </thead>
+               <tbody id="myTable">
+               </tbody>
+            </table>
+            
+            <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+         </div>
+         <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+              
+            });
+         </script>
+   </body>
+</html>
