@@ -88,7 +88,7 @@
             	$("table").append(row);
          	$("#myTable tr").filter(function() {
          	//alert(n1);
-              $(this).toggle($(this).text().toLowerCase().indexOf(n1) > -1)
+              $(this).toggle($(this).text().toUpperCase().indexOf(n1) > -1)
             });
                         console.log("New city: ", change.doc.data());
                     }
