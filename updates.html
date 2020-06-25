@@ -72,9 +72,12 @@
          var d1 = new Date();
          d2=d1.getDate();
          var mons=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+          var mons1=["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
          var d3=d1.getMonth();
          var d5=mons[d3];
+         var d51=mons1[d3];
          d4=d2+"-"+d5;
+         d41=d2+"-"+d51;
          document.getElementById("demo1").innerHTML = d4;
          datas=[
 {id:'1',nm:' Sandip H parekh ',pno:'8511121190',dt:'13-Oct'},
@@ -379,7 +382,7 @@
          ];
          var todays=[];
          for (i=0;i<datas.length; i++) {
-            if (datas[i].dt==d4) {
+            if (datas[i].dt==d4||datas[i].dt==d41) {
             todays.push("<a href='wa:91"+datas[i].pno+":Happy Birthday to'>"+datas[i].nm+'</a>');
          
             }
@@ -541,14 +544,14 @@
 {id:'229',nm:'Richa &  Rakesh Kumar Jain ',pno1:'9904067712',pno2:'',dt:'18-Feb'},
 {id:'230',nm:'Vibha &  Vikesh P Shah ',pno1:'9909927738',pno2:'',dt:'16-Nov'},
             {id:'231',nm:'Aneri &  Manthan Shah ',pno1:'9824035111',pno2:'94295 66061',dt:'8-Dec'},
-            {id:'233',nm:'Shailaja &  Pranav B Shah',pno1:'7572884115',pno2:'',dt:'8-Feb'},
+            {id:'233',nm:'Shailaja &  Pranav B Shah',pno1:'7572884115',pno2:'',dt:'8-Feb'}
 
 
 
  ];
          var todays2=[];
          for (i=0;i<datas2.length; i++) {
-            if (datas2[i].dt==d4) {
+            if (datas2[i].dt==d4||datas2[i].dt==d41) {
             todays2.push("<a href='wa:91"+datas2[i].pno1+":Happy Wedding Anniversary  '>"+datas2[i].nm+'</a>');
          
             }
